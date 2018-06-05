@@ -1,13 +1,6 @@
 
 <div id="info_box">
-    <% if @dancers.blank? %>
-    <h4>There are no dancers containing the term <%= params[:search] %>.</h4>
-    <% end %>
 
-    <% if @dancers.present? %>
-        <%= render html: "@dancers" %>
-    <% else %>
-    <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
 <% end %>
 
 
