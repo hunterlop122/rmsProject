@@ -1,0 +1,40 @@
+
+<div id="info_box">
+    <% if @dancers.blank? %>
+    <h4>There are no dancers containing the term <%= params[:search] %>.</h4>
+    <% end %>
+
+    <% if @dancers.present? %>
+        <%= render html: "@dancers" %>
+    <% else %>
+    <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+<% end %>
+
+
+</div>
+<div id="show_dancerData">
+    <%= @dancers.find_each do |dancer| %>
+
+        <table style="width:100%">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th> 
+            <th>Location</th>
+            <th>Email</th>
+            <th>Dance Style</th>
+            <th>Phone Number</th>
+            <th>Instagram name</th>
+        </tr>
+            <td><%= dancer.firstname %></td>
+            <td><%= dancer.lastname %></td>
+            <td><%= dancer.location %></td>
+            <td><%= dancer.email %></td>
+            <td><%= dancer.dancestyle %></td>
+            <td><%= dancer.mobilenumber %></td>
+            <td><%= dancer.ighandle %></td>
+            <td><%= link_to 'Delete', dancer_path(dancer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            
+        </table>
+    <% end %>
+
+</div>

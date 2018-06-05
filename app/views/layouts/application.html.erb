@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RmsProject</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div id="nav_bar">
+    <div id="nav_seach_bar">
+    <%= form_tag(dancers_dancers_path, :method => :get, class: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search for previous entries..", class: "form-control" %>
+      <%= submit_tag "search", class: "btn btn-success btn-md" %>
+    <% end %>
+    <div id="nav_bar_text"><a href="/dancers">index</a> <a href="/dancers/new">new</a> <a href="/dancers/show">show</a></div>
+   </div>
+   </div>
+    <%= yield %>
+ 
+  </body>
+</html>
